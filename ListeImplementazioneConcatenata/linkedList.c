@@ -6,8 +6,16 @@
  * Returns the updated pointer to the first element of the list.
  */
 LLElement * LLInsertAtBeginning(LLElement * first, int key) {
-    // TODO To be implemented
-    return NULL;
+    
+    LLElement *new;
+    new=(LLElement *)malloc(sizeof (LLElement));
+    if(new!=NULL){
+        new->next=first;
+        new->key=key;
+        first=new;
+    }
+    
+    return first;
 }
 
 /*
@@ -35,16 +43,27 @@ LLElement * LLInsertAtPosition(LLElement * first, int key, int position) {
  * Returns the size of the list.
  */
 int LLSize(LLElement * first) {
-    // TODO To be implemented
-    return 0;
+    
+    int c=0;
+    while(first!=NULL){
+        c++;
+        first=first->next;
+    }
+    
+    return c;
 }   
 
 /*
  * Returns the key at the specified position.
  */ 
 int LLGetKey(LLElement * first, int position) {
-    // TODO To be implemented
-    return 0;
+
+    int c=0;
+    for(c=0; c<position; c++){
+        first=first->next;
+    }
+    
+    return first->next;
 }
 
 /*
@@ -86,7 +105,3 @@ LLElement * LLRemoveAtPosition(LLElement * first, int position) {
     // TODO To be implemented
     return NULL;
 }
-
-
-
-
